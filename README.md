@@ -13,7 +13,7 @@
      Why is this knowledge valuable, and why is it hard to find through official channels?
      Example: "Student reviews of CS professors at [university] — useful because official
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
-
+This domain covers the procedural steps, tool recommendations, and community consensus for maintaining and cleaning striker-fired handguns (like the Glock). While manufacturers provide basic maintenance schedules, this knowledge is valuable because the community offers real-world nuance, such as exactly how much oil is "too much" and the practical differences between using CLP versus dedicated solvents.
 ---
 
 ## Document Sources
