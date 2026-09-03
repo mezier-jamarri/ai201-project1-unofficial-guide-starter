@@ -1,0 +1,75 @@
+A number of my friends have told me that cleaning firearms relaxes them, and they enjoy it. I am not of this mindset at all. In fact, cleaning guns for me is about as much fun as being a dinner guest at Jeffrey Dahmer’s house. However, one of the wonderful things about most striker-fired pistols is they are one of the simplest, easiest pistol types to field strip and clean. Typically, they only require a few drops of oil (a half-dozen drops is not unheard of) to lubricate.
+
+Whether you’re cleaning Glock, Sig, Springfield Armory, or Smith & Wesson; most of these striker-fired pistols can be cleaned in a similar way. A few might have nuances peculiar to their brand, but generally, they’re mostly the same.
+
+How often do you clean a striker-fired pistol?
+A majority of shooters will probably tell you to clean your firearms after each range session. That’s probably good, solid advice. You really can’t go wrong cleaning that often.
+
+I have a certain friend who works at Sig Sauer. He basically shoots firearms for a living, which is to say, he shoots a whole lot! Let’s put it this way — he shoots so much that he gets sick of it, and it becomes a drudgery. Yes, it’s possible to shoot that much because I’ve been there myself. As a former member of a tactical unit, there were times when we shot so many rounds, day after day, that shooting lost its fun and became monotonous. I never hated it, mind you, but it got a little dull at times.
+
+So, when I asked my friend how often he recommends cleaning firearms, he said, “I clean mine about every five to six thousand rounds.” I really liked his answer! It let me off the hook from cleaning my guns so often! Am I realistically going to fire mine that much between cleanings? Probably not. For my defensive carry pistols, I’ll especially clean them more frequently.
+
+Steps to Cleaning a Striker-fired Pistol
+Unload It!!!
+Seriously, make certain the firearm is unloaded. Some striker-fired pistols, such as the Glock, must have their trigger pulled to field strip them. Most negligent discharges occur because the user failed to clear the chamber before pulling the trigger to field strip the pistol. Follow these steps to ensure safe handling:
+
+Eject the magazine
+Empty the chamber
+Get all live ammo away from your cleaning area
+Once a bullet is fired, it’s like toothpaste — you can’t put it back into the tube.
+
+A Word About Spray Cleaners
+I love, love, love gun cleaning sprays!! They get into areas that are so hard to otherwise reach. You can hit entire components of the pistol. For example, cleaning the barrel is so fast and easy. I spray the entire thing down, both inside and out, until it’s dripping with cleaner. Wipe down the outside and then begin on the inside.
+
+Although it’s for another article, I’ll mention that there is nothing like spray cleaner to clean out the gas key and gas system of an AR-15. The stuff is pure, magical genius!
+
+A word of caution on spray cleaners though — While spray cleaners are great tools, be sure the spray you’re using is safe for polymer handguns. Some sprays will destroy a polymer frame!
+
+Barrel Cleaning
+I run a patch wet with solvent down the barrel. If I’m in a real hurry, I’ll spray some gun cleaner down the barrel. My next step is to scrub the barrel with a brush. For striker-fired pistols, I normally use the nylon cleaning brush that comes in the Glock cleaning kit. It’s super simple and works fine. I scrub the barrel a couple dozen times with the brush. Note: always insert the brush from the breech, not the muzzle, end. This preserves the rifling at the muzzle and the barrel’s crown, which helps keep the pistol accurate.
+
+Striker-fired barrel geometry receiving lube.
+After the barrel is cleaned inside and out, it should be lubricated. The locking geometry is a place that also needs to be lubricated. Photo: Jim Davis.
+After that, I do another wet patch (or spray more gun cleaner down the barrel). Finally, I run several dry patches down the barrel until they come out clean. Also, don’t forget to wipe down the outside of the barrel and the lock geometry that’s underneath. Spray cleaner is great for this and makes quick work of the gunk.
+
+My striker-fired pistols aren’t sniper weapons, so I don’t become overly obsessed with getting every last molecule of foreign material out of the barrel. Understand, my barrels get cleaned, but I don’t waste a ton of time on them.
+
+Frame and Guide Rod Cleaning
+I take an old toothbrush (they work great) and vigorously scrub the slide’s breech face (where the firing pin protrudes from). I usually wipe it down with some solvent to loosen up any gunk before brushing it. Be sure not to get any lube into the firing pin channel.
+
+After that, I scrub out the slide’s rail cutouts to make sure there’s nothing in them. I use either a solvent or spray some gun cleaner on them. I’ll also clean the area of the slide where the barrel fits into and rides.
+
+Rail cutouts being lubed.
+The rail cutouts benefit from lubrication applied after they’re thoroughly cleaned. Photo: Jim Davis.
+I use the toothbrush to scrub each of the frame rails that the slide rides on, as well as the disconnect on the frame. Anything that looks dirty gets wiped down and cleaned. It’s good to use the toothbrush on the frame itself and hit any areas where fouling has gathered. If there’s a lot of fouling, go ahead and wet a small rag or patch with solvent and clean the affected areas.
+
+striker-fired pistol disconnector being lubed.
+On Glocks, the lower rear portion of the disconnect should be lubed so it slides smoothly. Photo: Jim Davis.
+I’ll also take the recoil spring and its guide rod and give it a good wipe down and inspection. Make sure it’s free of fouling and debris.
+
+Lubrication – Less is More
+AR-15s like to run “wet”, which is to say, very heavily lubed. Striker-fired pistols, on the other hand, run better without a ton of lubrication. In this case, less is more. Over-lubrication tends to attract dirt and gunk in pistols.
+
+Lubrication goes on each of the four rails on the pistol’s frame. This is the two forward locking block rails as well as the rear slide rails. Another drop goes onto the locking block itself. The disconnector also gets a small drop of lube. Glock recommends one drop of oil for each slide rail. They specify the rear/base of the connector (at the rear of the frame) receives a drop of oil.
+
+The rails receiving lubrication.
+Lubricating the rails after they are cleaned is one of the main concerns with maintaining a striker-fired handgun. Photo: Jim Davis.
+The barrel receives a drop on the top front. Smear it around 360 degrees so the entire barrel is externally lubed. A tiny amount of lube can go underneath the feed ramp (not on it), which is smeared around with the finger. Some can also be smeared under the barrel’s locking geometry. Basically, a little lube wherever you see bare metal on the barrel. Bare metal means it contacts other metals and causes wear.
+
+I also put a drop of lube onto the inside top of the slide where the top of the barrel contacts, as well as the round portion at the end of the slide where the barrel fits through. Again, any metal-on-metal contact points where you see wear. There’s no need to go overboard; a little lube goes a long way. DO NOT put any lubricant into the striker channel because it will just gum up the works and create functioning problems.
+
+Does the type of lubricant matter?
+As long as it’s meant for firearms, it’s not too crucial. Don’t use WD-40. It gums things up in a terrible way. However, there are tons of lubes on the market these days. I like Slip 2000, Nano Oil, FP-10, and a few others. Most of them seem to perform similarly.
+
+Inspection and Reassembly of Striker-fired Pistols
+Inspect all the parts to make sure everything looks normal. Inspect the barrel to make certain there are no bulges or cracks. Look down the barrel and ensure it’s clear. Check the extractor for any kind of chips and ensure there is no debris underneath it. Also, inspect the ejector to make sure it’s not chipped or cracked. The slide stop should move freely and snap down when you lift it up.
+
+Once all the components are clean and lubricated appropriately, reassemble the pistol. Do a function check by racking the slide and pulling the trigger with an empty pistol. You should hear a click. Test any external safeties that might be on your pistol. At this point, I wipe off any excess lubrication that might be on the outside of the pistol, as well as any dirt.
+
+Time Involved
+For me, it takes as much time to gather my cleaners and tools as it does to actually clean a striker-fired pistol. They all field strip very easily and quickly. In a matter of a few seconds, I can have any of them field stripped. With the advent of spray cleaners, it makes the cleaning process even faster. I can strip, clean, and reassemble a striker-fired pistol in under ten minutes.
+
+Final Thoughts on Maintaining Striker-Fired Pistols
+Cleaning a striker-fired pistol is not too much different from cleaning most other handguns. Actually, they are a little simpler than some other designs. A cleaning kit need only contain a few basic items. There’s no need to assemble an elaborate, expensive cleaning kit (unless you want to).
+
+Follow the basic steps above, and you won’t go wrong. The more often you practice these steps, the easier it becomes. Have fun!
