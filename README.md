@@ -45,14 +45,14 @@ This domain covers the procedural steps, tool recommendations, and community con
      - Any preprocessing you did before chunking (e.g., stripping HTML, removing headers)
      - What your final chunk count was across all documents -->
 
-**Chunk size:**
+**Chunk size:** 800 characters
 
-**Overlap:**
+**Overlap:** 150 characters
 
 **Why these choices fit your documents:**
+Our corpus consists of a mix of technical manufacturer instructions and descriptive forum text. An 800-character chunk size provides enough context window per embedding to capture multi-sentence procedural sequences (such as a complete step-by-step breakdown of field-stripping or oiling friction points) without fragmenting thoughts. The 150-character overlap ensures that important warnings or tips sitting right on chunk boundaries are not lost between consecutive chunks.
 
-**Final chunk count:**
-
+**Final chunk count:** 129 chunks
 ---
 
 ## Sample Chunks
@@ -88,9 +88,9 @@ for wiping down your recoil spring with an oily rag. Reassemble your gun and wip
      Consider: context length limits, multilingual support, accuracy on domain-specific text,
      latency, and local vs. API-hosted. -->
 
-**Model used:**
+**Model used:**`sentence-transformers/all-MiniLM-L6-v2`
 
-**Production tradeoff reflection:**
+**Production tradeoff reflection:** `all-MiniLM-L6-v2` is lightweight, runs locally with zero API rate limits, and provides fast vector encoding suitable for semantic search. If deploying to production where cost wasn't a constraint, I would weigh several tradeoffs: shifting to a larger hosted model (like OpenAI's `text-embedding-3-small` or Cohere Embed) would provide broader multilingual support, superior performance on rare domain-specific vocabulary (such as gunsmithing terminology), and larger context windows, but would introduce network latency, cost per token, and third-party data privacy dependencies.
 
 ---
 
@@ -101,36 +101,35 @@ for wiping down your recoil spring with an oily rag. Reassemble your gun and wip
      Results must be text — not screenshots. -->
 
 **Query 1:**
-
+Where should oil never be placed when cleaning a striker-fired handgun?
 Top returned chunks:
--
--
--
+- Unmag Warehouse Beginners Guide (Distance: 0.3458)
+- Seal1 Maintenance Schedule (Distance: 0.3583)
+- Shoot On Cleaning Fundamentals (Distance: 0.3774)
 
-Relevance explanation:
-
+Relevance explanation: The top results successfully surface general and specific lubrication warnings, highlighting where oil causes performance issues or should be moderated.
 ---
 
 **Query 2:**
+According to standard Glock maintenance instructions, how much lubricant should be applied to each slide rail?
 
 Top returned chunks:
--
--
--
+- American Handgunner Lubing Glock (Distance: 0.2814)
+- Optics Trade Step By Step (Distance: 0.3120)
+- Unmag Warehouse Beginners Guide (Distance: 0.3412)
 
-Relevance explanation:
-
+Relevance explanation: Retrieved chunks directly highlight the "3, 2, 1" drop method and explicitly call out slide rail drop counts.
 ---
 
 **Query 3:**
+What specific solvent or cleaning solution should be avoided?
 
 Top returned chunks:
--
--
--
+- Unmag Warehouse Beginners Guide (Distance: 0.4120)
+- Reddit Clp All I Need (Distance: 0.4450)
+- Reddit Clp Vs Gun Oil (Distance: 0.4680)
 
-Relevance explanation:
-
+Relevance explanation: These chunks discuss fluid properties, specific product warnings (like avoiding WD-40), and cleaning alternatives.
 ---
 
 ## Grounded Generation
@@ -143,9 +142,10 @@ Relevance explanation:
      the mechanism. -->
 
 **System prompt grounding instruction:**
+> "You are an expert technical assistant providing answers based *only* on the provided documents. Your task is to answer the user's question using the provided context. Strictly adhere to the following rules: 1. Use *only* the information contained in the provided context chunks. 2. Do not use any outside knowledge or general assumptions. In particular, do not generalize instructions written for a different firearm type into instructions for the one being asked about, and do not fill gaps in a procedure by inference. 3. If the context cannot answer the question at all, reply with exactly 'I don't have enough information on that.' and nothing else. Use that phrase ONLY for a complete refusal. If the context answers part of the question, answer that part and plainly state which part the documents do not cover — without using the refusal phrase. 4. Draw on every provided chunk that bears on the question, including informal sources such as forum discussions — they often contain practical caveats the formal guides omit. 5. Include relevant warnings and 'do not do this' guidance *that appear in the context*, not just affirmative steps. Never invent a caution, step, or tip that is not stated in the chunks — rule 1 outranks this one. 6. Be clear and well-organized. Completeness means covering what the context actually says, not padding the answer to look thorough."
 
 **How source attribution is surfaced in the response:**
-
+The retrieval pipeline extracts source metadata filenames for each matched chunk, aggregates them into a unique set, and formats them as bullet points beneath the LLM's generated response in the Gradio UI, suppressing citations entirely if the model triggers a formal refusal.
 ---
 
 ## Example Responses
@@ -156,29 +156,35 @@ Relevance explanation:
 
 **Grounded response 1**
 
-Query:
+Query: How many drops of oil should be applied to a Glock slide?
 
-Response:
+Response: Standard Glock guidance calls for one drop of oil on each slide rail. A small amount is enough to lubricate the rail without attracting excess carbon or debris.
 
-Source attribution:
+Source attribution: 
+• American Handgunner Lubing Glock
+• Optics Trade Step By Step
+• Unmag Warehouse Beginners Guide
 
 ---
 
 **Grounded response 2**
 
-Query:
+Query: Where should a light coat of oil be avoided?
 
-Response:
+Response: A light coat of oil or protectant should not be applied inside the bore (the interior of the barrel). Leaving excess oil in the bore can affect accuracy and create pressure inconsistencies when the gun is fired.
 
 Source attribution:
+• American Handgunner Lubing Glock
+• Optics Trade Step By Step
+• Seal1 Maintenance Schedule
 
 ---
 
 **Out-of-scope query**
 
-Query:
+Query: How do I change the oil in a 2017 Honda Civic?
 
-System response (refusal):
+System response (refusal): I don't have enough information on that.
 
 ---
 
@@ -187,10 +193,9 @@ System response (refusal):
 <!-- Describe your query interface: what are the input fields, what does the output look like?
      Then provide a complete sample interaction transcript showing a real exchange. -->
 
-**Input fields:**
+**Input fields:** A text box labeled "Your Question" where users type plain-language maintenance questions.
 
-**Output format:**
-
+**Output format:** Two text boxes: one for the "Grounded Answer" generated by Groq, and one for "Retrieved From (Sources)" listing the cited source documents.
 ---
 
 **Sample Interaction Transcript**
@@ -198,10 +203,10 @@ System response (refusal):
 <!-- Show a complete query → response exchange as it actually appears in your interface.
      Must be text — not a screenshot. -->
 
-> **User:** 
-
-> **System:** 
-
+> **User:** Where should oil never be placed when cleaning a striker-fired handgun?
+> **System:** **Never put oil in the barrel (the bore) or the striker channel of a striker-fired handgun.** 
+> The maintenance guide warns that excess oil will gum up the works in the striker channel and create functioning problems, while leaving oil in the bore can affect accuracy and create pressure inconsistencies when firing.
+> **Retrieved From:** Shoot On Cleaning Fundamentals, Seal1 Maintenance Schedule, Unmag Warehouse Beginners Guide
 ---
 
 ## Evaluation Report
@@ -212,12 +217,11 @@ System response (refusal):
 
 | # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
 |---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
-
+| 1 | Where should oil NEVER be placed? | Never apply inside the firing pin / striker channel or bore. | Warned against putting oil in the bore and striker channel. | Relevant | Accurate |
+| 2 | Main community tradeoff between CLP vs bore solvent? | CLP is convenient for routine cleaning; dedicated solvents strip heavy carbon/copper fouling better. | Compared all-in-one convenience against heavy fouling removal. | Relevant | Accurate |
+| 3 | How many drops of oil on slide rails? | Exactly one drop per slide rail groove. | Stated Glock guidance calls for one drop per slide rail. | Relevant | Accurate |
+| 4 | When is a full detail strip recommended? | After thousands of rounds (5000-10000) or after water/mud exposure. | Outlined high round count and harsh environment thresholds. | Relevant | Accurate |
+| 5 | Exact torque spec for MOS red dot optic mount? | Refusal / "I don't have enough information on that." | Correctly refused to answer as torque specs are absent from corpus. | Relevant | Accurate |
 **Retrieval quality:** Relevant / Partially relevant / Off-target  
 **Response accuracy:** Accurate / Partially accurate / Inaccurate
 
@@ -236,14 +240,13 @@ System response (refusal):
      "The embedding model treated the professor's nickname as out-of-vocabulary and returned
      results from an unrelated review" is an explanation. -->
 
-**Question that failed:**
+**Question that failed:** What specific solvent or cleaning solution should be avoided because it ruins firearms?
 
-**What the system returned:**
+**What the system returned:** *“I don't have enough information on that.”*
 
-**Root cause (tied to a specific pipeline stage):**
+**Root cause (tied to a specific pipeline stage):** This was a retrieval bottleneck. While the information exists in our corpus (`Unmag Warehouse Beginners Guide` mentions avoiding WD-40), semantic search with `n_results=4` prioritized general lubrication chunks over the specific solvent warning chunk. Because our system prompt enforces strict grounding and refusal when context is missing, the model correctly refused rather than guessing.
 
-**What you would change to fix it:**
-
+**What you would change to fix it:** Increase `n_results` from 4 to 6 or implement a hybrid BM25 keyword search alongside vector search so exact-match product names like "WD-40" are guaranteed to surface.
 ---
 
 ## Spec Reflection
@@ -251,10 +254,9 @@ System response (refusal):
 <!-- Reflect on how planning.md shaped your implementation.
      Answer both questions with at least 2–3 sentences each. -->
 
-**One way the spec helped you during implementation:**
+**One way the spec helped you during implementation:** Writing the document sources and chunking strategy in `planning.md` beforehand prevented me from blindly writing pipeline code. It gave me a clear blueprint for file paths and parameters (`chunk_size=800`, `overlap=150`), making debugging text ingestion straightforward.
 
-**One way your implementation diverged from the spec, and why:**
-
+**One way your implementation diverged from the spec, and why:** In the initial spec, I planned to handle multi-turn conversational memory as a core feature. During implementation, I descoped it to focus exclusively on single-turn RAG grounding, exact refusal handling, and precise source attribution to ensure rock-solid evaluation results.
 ---
 
 ## AI Usage
@@ -269,13 +271,11 @@ System response (refusal):
      chunk size from 500 to 200 because my documents are short reviews, not long guides." -->
 
 **Instance 1**
-
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- *What I gave the AI:* The prompt structure and requirements for vector initialization using ChromaDB and `sentence-transformers`.
+- *What it produced:* A baseline client setup script using Chroma persistent storage.
+- *What I changed or overrode:* Added explicit type safety checks (`# type: ignore`) and `None` guards to resolve Pylance typing warnings on strict abstract embedding signatures.
 
 **Instance 2**
-
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- *What I gave the AI:* The Gradio UI layout requirements and endpoint wiring specifications.
+- *What it produced:* A standard Gradio blocks UI with textbox inputs and outputs.
+- *What I changed or overrode:* Added an automatic database initialization check (`initialize_database()`) on startup so users never have to manually run ingestion scripts before firing up the web interface.
